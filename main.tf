@@ -1,5 +1,5 @@
 locals {
-  create_cluster = var.create_cluster && var.putin_khuylo
+  create_cluster = var.create_cluster
 
   port = coalesce(var.port, (var.engine == "aurora-postgresql" ? 5432 : 3306))
 
