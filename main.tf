@@ -102,6 +102,14 @@ resource "aws_rds_cluster" "this" {
     }
   }
 
+  dynamic "serverlessv2_scaling_configuration" {
+    for_each = length(keys(var.serverlessv2_scaling_configuration)) == 0 || local.is_serverless ? [] : [var.serverlessv2_scaling_configuration]
+
+    content {
+      max_capacity = serverlessv2_scaling_configuration.value.max_capacity
+      min_capacity = serverlessv2_scaling_configuration.value.min_capacity
+    }
+  }
   dynamic "s3_import" {
     for_each = var.s3_import != null && !local.is_serverless ? [var.s3_import] : []
     content {
@@ -286,11 +294,16 @@ resource "aws_appautoscaling_policy" "this" {
 resource "aws_security_group" "this" {
   count = local.create_cluster && var.create_security_group ? 1 : 0
 
-  name_prefix = "${var.name}-"
+  name        = var.security_group_use_name_prefix ? null : var.name
+  name_prefix = var.security_group_use_name_prefix ? "${var.name}-" : null
   vpc_id      = var.vpc_id
   description = coalesce(var.security_group_description, "Control traffic to/from RDS Aurora ${var.name}")
 
   tags = merge(var.tags, var.security_group_tags, { Name = var.name })
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 # TODO - change to map of ingress rules under one resource at next breaking change

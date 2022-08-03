@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+### [7.2.2](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v7.2.1...v7.2.2) (2022-07-11)
+
+
+### Bug Fixes
+
+* InvalidParameterCombination: Cannot find version 5.7.12 for aurora-mysql ([#303](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/issues/303)) ([bcbb386](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/commit/bcbb386e0854bc1968c271bb3f49a5a106fbcec9))
+
+### [7.2.1](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v7.2.0...v7.2.1) (2022-06-27)
+
+
+### Bug Fixes
+
+* SecurityGroup - create_before_destroy ([#301](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/issues/301)) ([ceb91fb](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/commit/ceb91fb0153aa2cd92d3bfa67c458998901530a0))
+
+## [7.2.0](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v7.1.0...v7.2.0) (2022-06-20)
+
+
+### Features
+
+* Add MySql serverless v2 example ([#295](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/issues/295)) ([0390b59](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/commit/0390b59a279eb9a02126df29c43f5cc828d3870f))
+
+## [7.1.0](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v7.0.0...v7.1.0) (2022-05-02)
+
+
+### Features
+
+* Add `security_group_use_name_prefix` variable to enable/disable name prefix usage ([#289](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/issues/289)) ([75ffb30](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/commit/75ffb30cd6032622ac28f4c5c16e47aba069e11f))
+
+## [7.0.0](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v6.2.0...v7.0.0) (2022-05-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added support for ServerlessV2 and updated AWS provider to v4.12+ (#288)
+
+### Features
+
+* Added support for ServerlessV2 and updated AWS provider to v4.12+ ([#288](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/issues/288)) ([6ca7c70](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/commit/6ca7c705f382c2d5aec0df5a0aa6f6c198871dec))
+
 ## [6.2.0](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v6.1.4...v6.2.0) (2022-03-12)
 
 

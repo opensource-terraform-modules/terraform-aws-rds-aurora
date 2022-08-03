@@ -46,7 +46,7 @@ module "aurora" {
 
   name           = local.name
   engine         = "aurora-mysql"
-  engine_version = "5.7.12"
+  engine_version = "5.7"
   instances = {
     1 = {
       instance_class      = "db.r5.large"
@@ -79,6 +79,8 @@ module "aurora" {
   db_parameter_group_name         = aws_db_parameter_group.example.id
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.example.id
   enabled_cloudwatch_logs_exports = ["audit", "error", "general", "slowquery"]
+
+  security_group_use_name_prefix = false
 
   tags = local.tags
 }
